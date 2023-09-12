@@ -25,7 +25,7 @@
 #cmakedefine VW_ENABLE_EXCEPTIONS 1
 
 /* enable SSE optimizations in some places (development) */
-#cmakedefine VW_ENABLE_SSE 1
+#cmakedefine VW_ENABLE_SSE 0
 
 //TODO: Do we need this one?
 ///* Define to 1 if VW has BigTIFF support */

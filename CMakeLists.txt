@@ -13,9 +13,9 @@ cmake_minimum_required (VERSION 3.15)
 set(CMAKE_CXX_FLAGS "" CACHE STRING "")
 set(CMAKE_C_FLAGS "" CACHE STRING "")
 
-set(CUDA_NVCC_FLAGS "${CUDA_NVCC_FLAGS}  -O3 -std=c++14")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -std=c++14")
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3")
+set(CUDA_NVCC_FLAGS "${CUDA_NVCC_FLAGS}  -O0 -std=c++17 -x cu -ccbin gcc")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 -std=c++17")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O0")
 set(CMAKE_EXE_LINKER_FLAGS "-pthread -lpthread")
 
 if (APPLE)

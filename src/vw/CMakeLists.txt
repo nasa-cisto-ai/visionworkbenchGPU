@@ -192,15 +192,15 @@ set(VW_ENABLE_EXCEPTIONS 1)
 set(VW_ENABLE_PYTHON 0)
 
 # enable SSE optimizations in some places (development) 
-if (VW_ENABLE_SSE)
-  set(CXXFLAGS "${CXXFLAGS} -msse4.1")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -msse4.1")
-   message(STATUS, "Enabling SSE")
-else() # Compatibility with older systems.
-  message(STATUS, "Disabling SSE")
-  set(CXXFLAGS "${CXXFLAGS} -mno-sse4.1")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mno-sse4.1")
-endif()
+# if (VW_ENABLE_SSE)
+# set(CXXFLAGS "${CXXFLAGS} -msse4.1")
+# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -msse4.1")
+# message(STATUS, "Enabling SSE")
+#else() # Compatibility with older systems.
+message(STATUS, "Disabling SSE")
+set(CXXFLAGS "${CXXFLAGS} -mno-sse4.1")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mno-sse4.1")
+#endif()
 
 
 # Define to `int' if <sys/types.h> does not define. 
