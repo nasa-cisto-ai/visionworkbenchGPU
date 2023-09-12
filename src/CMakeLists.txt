@@ -4,8 +4,9 @@ include(Utilities) # Contains functions
 # - cc and c++ both need to be on the PATH.
 find_program(CMAKE_C_COMPILER   NAMES $ENV{CC}  gcc PATHS ENV PATH NO_DEFAULT_PATH)
 find_program(CMAKE_CXX_COMPILER NAMES $ENV{CXX} g++ PATHS ENV PATH NO_DEFAULT_PATH)
+find_program(CMAKE_CUDA_COMPILER NAMES $ENV{CUDA} nvcc PATHS ENV PATH NO_DEFAULT_PATH)
 
-project (VisionWorkbench C CXX)
+project (VisionWorkbench C CXX CUDA)
 
 # Verify that we have a new enough compiler.
 if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")

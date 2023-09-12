@@ -7,6 +7,7 @@ function( get_all_source_files relativePath outputFileList)
   file(GLOB TEMP
       "${CMAKE_CURRENT_SOURCE_DIR}/${relativePath}/*.h"
       "${CMAKE_CURRENT_SOURCE_DIR}/${relativePath}/*.hpp"
+      "${CMAKE_CURRENT_SOURCE_DIR}/${relativePath}/*.cu"
       "${CMAKE_CURRENT_SOURCE_DIR}/${relativePath}/*.cc"
       "${CMAKE_CURRENT_SOURCE_DIR}/${relativePath}/*.cpp"
       "${CMAKE_CURRENT_SOURCE_DIR}/${relativePath}/*.cxx"      
@@ -131,7 +132,7 @@ function(add_library_wrapper libName fileList testFileList dependencyList)
   # Set up the library
   add_library(${libName} SHARED ${fileList})
 
-  set_target_properties(${libName} PROPERTIES LINKER_LANGUAGE CXX)   
+  set_target_properties(${libName} PROPERTIES LINKER_LANGUAGE CUDA CUDA_SEPARABLE_COMPILATION ON POSITION_INDEPENDENT_CODE ON)   
   message("For ${libName}, linking DEPS: ${dependencyList}")
   target_link_libraries(${libName} ${dependencyList})
 

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.15.5)
 
-project(visionworkbench)
+project (visionworkbench C CXX CUDA)
 
 if(APPLE)
     # Needed for conda build on OSX with conda
@@ -13,6 +13,7 @@ cmake_minimum_required (VERSION 3.15)
 set(CMAKE_CXX_FLAGS "" CACHE STRING "")
 set(CMAKE_C_FLAGS "" CACHE STRING "")
 
+set(CUDA_NVCC_FLAGS "${CUDA_NVCC_FLAGS}  -O3 -std=c++14")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -std=c++14")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3")
 set(CMAKE_EXE_LINKER_FLAGS "-pthread -lpthread")

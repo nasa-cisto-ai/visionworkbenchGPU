@@ -25,6 +25,7 @@
 #ifndef __VW_IMAGE_PIXELMASK_H__
 #define __VW_IMAGE_PIXELMASK_H__
 
+#include <stdio.h>
 #include <ostream>
 
 #include <boost/type_traits.hpp>
@@ -101,7 +102,9 @@ namespace vw {
 
     /// Returns the value from the valid channel
     channel_type valid() const { return m_valid; }
-
+    typedef channel_type (PixelMask::*ValidFunctionPointer)() const;
+    ValidFunctionPointer ptr = &PixelMask::valid;
+  
     /// Invalidates this pixel, setting its valid bit to zero.
     void invalidate() { m_valid = ChannelRange<channel_type>::min(); }
 
@@ -146,14 +149,15 @@ namespace vw {
     /// Channel indexing operator.
     inline channel_type& operator()(size_t i) {
       if (i == CompoundNumChannels<ChildT>::value)
-        return valid;
+        // result = &valid
+        return ptr;
       else
         return compound_select_channel<channel_type&>(m_child,i);
     }
     /// Channel indexing operator (const overload).
     inline channel_type const& operator()(size_t i) const {
       if (i == CompoundNumChannels<ChildT>::value)
-        return valid;
+        return ptr;
       else
         return compound_select_channel<channel_type const&>(m_child,i);
     }
