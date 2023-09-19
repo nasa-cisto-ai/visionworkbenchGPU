@@ -1,3 +1,10 @@
+# GPU/CUDA
+
+## Examples:
+
+- visionworkbenchGPU/src/vw/tools/cuda_imageview_test.cu
+- visionworkbenchGPU/src/vw/tools/cuda_spatial_weight.cu
+
 # Contributing to Vision Workbench
 
 ## Links

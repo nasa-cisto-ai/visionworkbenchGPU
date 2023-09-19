@@ -22,7 +22,7 @@
 ///
 #ifndef __VW_IMAGE_PIXELITERATOR_H__
 #define __VW_IMAGE_PIXELITERATOR_H__
-
+#include <stdio.h>
 #include <boost/iterator/iterator_facade.hpp>
 
 #include <vw/Core/FundamentalTypes.h>
@@ -64,7 +64,8 @@ namespace vw {
     typedef typename ViewT::pixel_type pixel_type;
 
     // Private variables
-    ViewT const &m_view;
+    ViewT const m_view;
+    // ViewT m_view;
     int32 m_width, m_height;
     int64 m_index, m_pixels_per_plane;
 
