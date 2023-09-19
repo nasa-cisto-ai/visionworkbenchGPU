@@ -132,7 +132,7 @@ function(add_library_wrapper libName fileList testFileList dependencyList)
   # Set up the library
   add_library(${libName} SHARED ${fileList})
 
-  set_target_properties(${libName} PROPERTIES LINKER_LANGUAGE CXX CUDA_SEPARABLE_COMPILATION ON)   
+  set_target_properties(${libName} PROPERTIES LINKER_LANGUAGE CUDA CUDA_SEPARABLE_COMPILATION ON)   
   message("For ${libName}, linking DEPS: ${dependencyList}")
   target_link_libraries(${libName} ${dependencyList})
 

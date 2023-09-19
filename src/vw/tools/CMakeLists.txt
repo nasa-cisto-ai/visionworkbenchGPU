@@ -17,6 +17,16 @@ set(COMMON_LIBS VwCore VwMath VwFileIO VwImage VwCartography)
 # add_executable(blend blend.cc) 
 # target_link_libraries(blend ${COMMON_LIBS} VwMosaic) 
 # install(TARGETS blend DESTINATION bin)
+#add_executable(test_main test_main.cu) 
+#target_link_libraries(test_main ${COMMON_LIBS}) 
+#install(TARGETS test_main DESTINATION bin)
+add_executable(cuda_spatial_weight cuda_spatial_weight.cu) 
+target_link_libraries(cuda_spatial_weight ${COMMON_LIBS}) 
+install(TARGETS cuda_spatial_weight DESTINATION bin)
+
+add_executable(cuda_imageview_test cuda_imageview_test.cu) 
+target_link_libraries(cuda_imageview_test ${COMMON_LIBS}) 
+install(TARGETS cuda_imageview_test DESTINATION bin)
 
 # Converts a DEM to a simple color map
 add_executable(colormap colormap.cc Common.h Common.cc) 
